@@ -19,7 +19,6 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Start', href: '/' },
     { name: 'Våra Tjänster', href: '/tjanster' },
-    { name: 'Priser', href: '/priser' },
     { name: 'Om oss', href: '/aboutus' },
   ];
 
@@ -37,7 +36,7 @@ export default function Navbar() {
           <span className="font-bold text-xl tracking-tight">Hundstund</span>
         </Link>
 
-        {/* DESKTOP NAV: Clean and simple */}
+        {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link 

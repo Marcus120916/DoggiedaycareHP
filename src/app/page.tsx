@@ -22,7 +22,7 @@ export default function Home() {
   }, [images.length]);
 
   return (
-    <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-32 pt-20 flex flex-col gap-24 md:gap-32">
+    <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-32 pt-20 flex flex-col ">
       
       {/* Sektion 1 - Hero med bildväxlare */}
       <section className="relative h-[600px] w-full overflow-hidden rounded-2xl border-b border-nature-900">
@@ -50,13 +50,14 @@ export default function Home() {
       </section>
 
       {/* Sektion 2 - Test av färger */}
-      <section className="py-24 flex flex-col gap-6">
-        <h2 className="text-2xl font-semibold text-nature-600">test</h2>
+      <section className="py-8 flex flex-col gap-8 flex items-center pb-32">
+        <h2 className="text-6xl font-extrabold text-nature-900 tracking-tight ">Hundstund</h2>
         <div className="space-y-4">
-          <p className="text-nature-300">test</p>
-          <p className="text-nature-600">test</p>
-          <p className="text-nature-900 text-3xl font-bold">test</p>
+          <p className="text-nature-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
+      </section>
+      <section className="py-32 flex flex-col gap-8 flex items-center border-t border-nature-200">
+        
       </section>
     </div>
   );
