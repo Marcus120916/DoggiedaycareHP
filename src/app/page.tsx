@@ -6,9 +6,9 @@ import Image from 'next/image';
 //Pictures 
 export default function Home() {
   const images = [
-    '/bild-1.jpg', 
-    '/bild-2.jpg',
-    '/bild-3.jpg',
+    '/oneDog.jpg', 
+    '/dayCare.jpg',
+    '/dogWalk.jpg',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,20 +44,29 @@ export default function Home() {
         ))}
         
         {/* Overlay för att göra text läsbar (valfritt) */}
-        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-          <h1 className="text-white text-4xl font-bold">Välkommen</h1>
+        <div className="absolute inset-0 bg-black/20 flex justify-center pt-18">
+          <h1 className="text-white text-6xl font-bold">Välkommen till oss</h1>
         </div>
       </section>
 
       {/* Sektion 2 - Test av färger */}
       <section className="py-8 flex flex-col gap-8 flex items-center pb-32">
         <h2 className="text-6xl font-extrabold text-nature-900 tracking-tight ">Hundstund</h2>
-        <div className="space-y-4">
+        <div className="max-w-3xl">
           <p className="text-nature-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
       </section>
-      <section className="py-32 flex flex-col gap-8 flex items-center border-t border-nature-200">
-        
+      <section className="py-32 flex flex-col gap-8 flex items-center border border-nature-300">
+        <h2 className="text-6xl font-extrabold text-nature-900 tracking-tight ">Våra tjänster</h2>
+        <div className="max-w-3xl">
+        <p className="text-nature-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </section>
+      <section className="py-32 flex flex-col gap-8 flex items-center ">
+        <h2 className="text-6xl font-extrabold text-nature-900 tracking-tight ">Om oss</h2>
+        <div className="max-w-3xl">
+        <p className="text-nature-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
       </section>
     </div>
   );
