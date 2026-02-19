@@ -8,11 +8,18 @@
 
 
 @theme inline {
-  --color-nature-50: #fef3c7;
-  --color-nature-200: #1c1917;
-  --color-nature-300: #92400e;
-  --color-nature-600: #dcfce7;
-  --color-nature-900: #166534;
+  /* En harmonisk natur-palett */
+  --color-nature-50: #fefce8;   /* Crème/Bakgrund */
+  --color-nature-100: #fef3c7;  /* Ljus beige */
+  --color-nature-200: #fde68a;  /* Accent beige */
+  --color-nature-300: #d97706;  /* Bärnsten/Brun */
+  --color-nature-400: #b45309;  /* Mellanbrun */
+  --color-nature-500: #16a34a;  /* Grön accent */
+  --color-nature-700: #15803d;  /* Skogsgrön */
+  --color-nature-800: #166534;  /* Mörkgrön */
+  --color-nature-900: #1c1917;  /* Mörkbrun/Svart */
+  --color-nature-950: #0c0a09;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

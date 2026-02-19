@@ -15,61 +15,60 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Simplified links for a Dog Daycare
   const navLinks = [
     { name: 'Start', href: '/' },
     { name: 'Våra Tjänster', href: '/tjanster' },
-    { name: 'Om oss', href: '/aboutus' },
+    { name: 'Om oss', href: '/about' },
   ];
 
   return (
     <nav 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-nature-50/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-nature-50/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         
-        {/* LOGO: Dog icon + Name */}
-        <Link href="/" className="flex items-center gap-2 text-nature-900 focus-visible:ring-2 focus-visible:ring-nature-900 rounded-lg outline-none">
-          <Dog size={32} className="text-nature-700" />
-          <span className="font-bold text-xl tracking-tight">Hundstund</span>
+        <Link href="/" className="flex items-center gap-2 text-nature-900 group">
+          <Dog size={32} className="text-nature-800 group-hover:rotate-12 transition-transform" />
+          <span className={`font-bold text-xl tracking-tight ${!isScrolled && pathname === '/' ? 'text-white md:text-nature-800' : 'text-nature-800'}`}>
+            Hundstund - din hunds andra hem
+          </span>
         </Link>
 
-        {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link 
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-nature-900 hover:opacity-70 transition-opacity"
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-bold transition-colors ${
+                pathname === link.href ? 'text-nature-500' : 'text-nature-900 hover:text-nature-500'
+              }`}
             >
-                {link.name}
+              {link.name}
             </Link>
           ))}
-          
-          {/* CALL TO ACTION: Booking button */}
           <Link 
             href="/boka"
-            className="bg-nature-900 text-nature-50 px-5 py-2.5 rounded-full text-sm font-bold hover:bg-nature-800 transition-transform active:scale-95 shadow-md"
+            className="bg-nature-800 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-nature-700 transition-all shadow-lg active:scale-95"
           >
-            Boka plats
+            Boka nu
           </Link>
         </div>
 
-        {/* MOBILE TOGGLE */}
+        {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-nature-900 p-2" 
+          className="md:hidden text-nature-900 bg-nature-100 p-2 rounded-full" 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Öppna meny"
         >
-          {mobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* Mobile Menu */}
       <div 
-        className={`absolute top-full left-0 w-full bg-nature-50 border-t border-nature-200 p-8 flex flex-col gap-6 md:hidden shadow-2xl transition-all duration-300 ${
+        className={`absolute top-full left-0 w-full bg-nature-50 p-8 flex flex-col gap-6 md:hidden shadow-2xl transition-all duration-300 ${
           mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
         }`}
       >
@@ -78,27 +77,17 @@ export default function Navbar() {
             key={link.href} 
             href={link.href} 
             onClick={() => setMobileMenuOpen(false)} 
-            className={`text-xl font-semibold ${
-              pathname === link.href ? 'text-nature-900' : 'text-nature-600'
-            }`}
+            className={`text-2xl font-bold ${pathname === link.href ? 'text-nature-500' : 'text-nature-900'}`}
           >
             {link.name}
           </Link>
         ))}
-        
-        <div className="pt-6 border-t border-nature-200 flex flex-col gap-4">
-          <Link 
-            href="/boka"
-            onClick={() => setMobileMenuOpen(false)}
-            className="bg-nature-900 text-nature-50 text-center py-4 rounded-xl font-bold text-lg"
-          >
-            Boka plats nu
-          </Link>
-          <div className="flex justify-center gap-6 text-nature-600">
-            <Link href="tel:0701234567"><Phone size={24} /></Link>
-            <Link href="/contact"><Mail size={24} /></Link>
-          </div>
-        </div>
+        <Link 
+          href="/boka"
+          className="bg-nature-800 text-white text-center py-4 rounded-2xl font-bold text-lg"
+        >
+          Boka nu
+        </Link>
       </div>
     </nav>
   );

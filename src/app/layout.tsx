@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
+import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dog Daycare",
-  description: "A cozy and loving daycare for your furry friends. We provide a safe and fun environment for dogs of all sizes and breeds. Book a spot for your dog today!",
+  title: "Hundstund | Ditt hunddagis",
+  description: "Ett tryggt och kärleksfullt hunddagis för dina fyrbenta vänner.",
 };
 
 export default function RootLayout({
@@ -24,13 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <NavBar />
-        <main className="relative z-10 min-h-screen">
+    <html lang="sv">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans flex flex-col min-h-screen`}>
+        <Navbar />
+        {/* 'flex-grow' ser till att footern alltid är längst ner även på korta sidor */}
+        <main className="relative z-10 flex-grow pt-20">
           {children}
         </main>
+        <Footer /> 
       </body>
     </html>
   );

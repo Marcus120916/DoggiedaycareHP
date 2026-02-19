@@ -1,31 +1,23 @@
 "use client"; 
-
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-//Pictures 
 export default function Home() {
-  const images = [
-    '/oneDog.jpg', 
-    '/dayCare.jpg',
-    '/dogWalk.jpg',
-  ];
-
+  const images = ['/oneDog.jpg', '/dayCare.jpg', '/dogWalk.jpg'];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Switch image every 5 seconds
-
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
     return () => clearInterval(timer);
   }, [images.length]);
 
   return (
-    <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-32 pt-20 flex flex-col ">
+    <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-32">
       
-      {/* Sektion 1 - Hero med bildväxlare */}
-      <section className="relative h-[600px] w-full overflow-hidden rounded-2xl border-b border-nature-900">
+      {/* Hero Section */}
+      <section className="relative h-[500px] md:h-[600px] w-full overflow-hidden rounded-3xl mt-8 shadow-2xl">
         {images.map((src, index) => (
           <div
             key={src}
@@ -35,38 +27,45 @@ export default function Home() {
           >
             <Image
               src={src}
-              alt={`Hund bild ${index + 1}`}
+              alt="Hunddagis miljö"
               fill
               priority={index === 0}
               className="object-cover"
             />
           </div>
         ))}
-        
-        {/* Overlay för att göra text läsbar (valfritt) */}
-        <div className="absolute inset-0 bg-black/20 flex justify-center pt-18">
-          <h1 className="text-white text-6xl font-bold">Välkommen till oss</h1>
+        <div className="absolute inset-0 bg-black/30 flex pt-25 justify-center text-center p-4">
+          <h1 className="text-white text-5xl md:text-7xl font-bold drop-shadow-lg transition-transform duration-700">
+            Välkommen till Hundstund
+          </h1>
         </div>
       </section>
 
-      {/* Sektion 2 - Test av färger */}
-      <section className="py-8 flex flex-col gap-8 flex items-center pb-32">
-        <h2 className="text-6xl font-extrabold text-nature-900 tracking-tight ">Hundstund</h2>
-        <div className="max-w-3xl">
-          <p className="text-nature-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      {/* Introduktion */}
+      <section className="py-24 flex flex-col items-center text-center gap-6">
+        <h2 className="text-4xl md:text-6xl font-extrabold text-nature-800 tracking-tight italic">
+          En trygg paus i vardagen
+        </h2>
+        <div className="max-w-2xl">
+          <p className="text-nature-400 text-lg leading-relaxed">
+            Vi erbjuder en harmonisk miljö där din hund får leka, vila och utvecklas tillsammans med erfarna hundpedagoger. Hos oss är varje hund unik.
+          </p>
         </div>
       </section>
-      <section className="py-32 flex flex-col gap-8 flex items-center border border-nature-300">
-        <h2 className="text-6xl font-extrabold text-nature-900 tracking-tight ">Våra tjänster</h2>
-        <div className="max-w-3xl">
-        <p className="text-nature-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </section>
-      <section className="py-32 flex flex-col gap-8 flex items-center ">
-        <h2 className="text-6xl font-extrabold text-nature-900 tracking-tight ">Om oss</h2>
-        <div className="max-w-3xl">
-        <p className="text-nature-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+
+      {/* Tjänster Grid */}
+      <section className="py-12 grid md:grid-cols-3 gap-8">
+        {[
+          { title: "Hunddagis", price: "Från xxxkr/mån", color: "bg-nature-100" },
+          { title: "Hundrastning", price: "Från xxxkr/promenad", color: "bg-nature-100" },
+          { title: "Hundtrim", price: "Enligt tidsbokning", color: "bg-nature-100" },
+        ].map((item) => (
+          <div key={item.title} className={`${item.color} p-8 rounded-2xl border border-nature-200 flex flex-col gap-4 shadow-sm`}>
+            <h3 className="text-2xl font-bold text-nature-800">{item.title}</h3>
+            <p className="text-nature-900/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit för din hunds bästa.</p>
+            <span className="font-semibold text-nature-500 mt-auto">{item.price}</span>
+          </div>
+        ))}
       </section>
     </div>
   );
